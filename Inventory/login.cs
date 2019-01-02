@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Controls;
-
+using System.Data.OleDb;
 
 namespace Inventory
 {
@@ -32,12 +32,15 @@ namespace Inventory
 
         private void login_Click(object sender, EventArgs e)
         {
+            //Connecting using SQLConnection
+
             string query;
             string connection;
             SqlConnection con = new SqlConnection(); //SqlConnection object to pass my connection string.
             SqlCommand command = new SqlCommand(); //This is command class which will handle the query and connection object.
             SqlDataReader reader;
-            connection = "Data Source=MSBML-710;Initial Catalog=LoginInv;Integrated Security=True";
+            //"Data Source=MSBML-710;Initial Catalog=LoginInv;Integrated Security=True";
+            connection = "Data Source=MSBML-710\\MSBML;Initial Catalog=LoginInv;Integrated Security=True;";
             //send login info to database
             query = "select * from loginInv where [user]='" + this.userName.Text + "' and pass='" + this.pass.Text + "'";
             con = new SqlConnection(connection); //SqlConnection object to pass my connection string.
@@ -45,8 +48,26 @@ namespace Inventory
             con.Open(); //open connection
             command = new SqlCommand(query, con); //This is command class which will handle the query and connection object.  
             reader = command.ExecuteReader();
+
+
+            //Connecting using OleDbConnection(MS Access)
+            //string query;
+            //string connection;
+            //OleDbConnection con = new OleDbConnection(); //SqlConnection object to pass my connection string.
+            //OleDbCommand command;// = new OleDbCommand(); //This is command class which will handle the query and connection object.
+            //OleDbDataReader reader;
+            ////"Data Source=MSBML-710;Initial Catalog=LoginInv;Integrated Security=True";
+            //connection = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = C:\\Users\\mmoore\\source\\repos\\Inventory\\Inventory\\Inventory.accdb;";
+            ////send login info to database
+            //query = "select * from loginInv where [user]='" + this.userName.Text + "' and pass='" + this.pass.Text + "'";
+            //con = new OleDbConnection(connection); //OleDbConnection object to pass my connection string.
+            ////MessageBox.Show(con.ToString());
+            //con.Open(); //open connection
+            //command = new OleDbCommand(query, con); //This is command class which will handle the query and connection object.  
+            //reader = command.ExecuteReader();
             string check;
             check = reader.Read().ToString();
+            //check = reader[0].ToString();
             if (check == "True" && ((userName.Text != "") || (pass.Text != "")))
             {
                 invEntry go = new invEntry();

@@ -30,77 +30,185 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(newSearch));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.inventoryDataSet1 = new Inventory.InventoryDataSet1();
+            this.inventoryDataSet = new Inventory.InventoryDataSet();
+            this.inventoryDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.inventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.inventoryTableAdapter = new Inventory.InventoryDataSet1TableAdapters.inventoryTableAdapter();
-            this.tableAdapterManager = new Inventory.InventoryDataSet1TableAdapters.TableAdapterManager();
-            this.inventoryBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.inventoryTableAdapter = new Inventory.InventoryDataSetTableAdapters.InventoryTableAdapter();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delinvDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.invNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.serialNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addinvDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ipaddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.computernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.goToRec = new System.Windows.Forms.Button();
+            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.inventoryBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.inventoryDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backBtn1 = new System.Windows.Forms.Button();
-            this.goToRecord = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet1)).BeginInit();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingNavigator)).BeginInit();
-            this.inventoryBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+            this.bindingNavigator1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // inventoryDataSet1
+            // inventoryDataSet
             // 
-            this.inventoryDataSet1.DataSetName = "InventoryDataSet1";
-            this.inventoryDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.inventoryDataSet.DataSetName = "InventoryDataSet";
+            this.inventoryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // inventoryDataSetBindingSource
+            // 
+            this.inventoryDataSetBindingSource.DataSource = this.inventoryDataSet;
+            this.inventoryDataSetBindingSource.Position = 0;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn,
+            this.delinvDataGridViewCheckBoxColumn,
+            this.invNumDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn,
+            this.serialNumDataGridViewTextBoxColumn,
+            this.userDataGridViewTextBoxColumn,
+            this.addinvDataGridViewCheckBoxColumn,
+            this.ipaddressDataGridViewTextBoxColumn,
+            this.computernameDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn,
+            this.costDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.inventoryBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 74);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(931, 546);
+            this.dataGridView1.TabIndex = 0;
             // 
             // inventoryBindingSource
             // 
-            this.inventoryBindingSource.DataMember = "inventory";
-            this.inventoryBindingSource.DataSource = this.inventoryDataSet1;
+            this.inventoryBindingSource.DataMember = "Inventory";
+            this.inventoryBindingSource.DataSource = this.inventoryDataSetBindingSource;
             // 
             // inventoryTableAdapter
             // 
             this.inventoryTableAdapter.ClearBeforeFill = true;
             // 
-            // tableAdapterManager
+            // iDDataGridViewTextBoxColumn
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.inventory1TableAdapter = null;
-            this.tableAdapterManager.inventory2TableAdapter = null;
-            this.tableAdapterManager.inventoryTableAdapter = this.inventoryTableAdapter;
-            this.tableAdapterManager.tblGenderTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Inventory.InventoryDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
             // 
-            // inventoryBindingNavigator
+            // delinvDataGridViewCheckBoxColumn
             // 
-            this.inventoryBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.inventoryBindingNavigator.BindingSource = this.inventoryBindingSource;
-            this.inventoryBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.inventoryBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.inventoryBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.delinvDataGridViewCheckBoxColumn.DataPropertyName = "del_inv";
+            this.delinvDataGridViewCheckBoxColumn.HeaderText = "del_inv";
+            this.delinvDataGridViewCheckBoxColumn.Name = "delinvDataGridViewCheckBoxColumn";
+            // 
+            // invNumDataGridViewTextBoxColumn
+            // 
+            this.invNumDataGridViewTextBoxColumn.DataPropertyName = "invNum";
+            this.invNumDataGridViewTextBoxColumn.HeaderText = "invNum";
+            this.invNumDataGridViewTextBoxColumn.Name = "invNumDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            // 
+            // serialNumDataGridViewTextBoxColumn
+            // 
+            this.serialNumDataGridViewTextBoxColumn.DataPropertyName = "serialNum";
+            this.serialNumDataGridViewTextBoxColumn.HeaderText = "serialNum";
+            this.serialNumDataGridViewTextBoxColumn.Name = "serialNumDataGridViewTextBoxColumn";
+            // 
+            // userDataGridViewTextBoxColumn
+            // 
+            this.userDataGridViewTextBoxColumn.DataPropertyName = "user";
+            this.userDataGridViewTextBoxColumn.HeaderText = "user";
+            this.userDataGridViewTextBoxColumn.Name = "userDataGridViewTextBoxColumn";
+            // 
+            // addinvDataGridViewCheckBoxColumn
+            // 
+            this.addinvDataGridViewCheckBoxColumn.DataPropertyName = "add_inv";
+            this.addinvDataGridViewCheckBoxColumn.HeaderText = "add_inv";
+            this.addinvDataGridViewCheckBoxColumn.Name = "addinvDataGridViewCheckBoxColumn";
+            // 
+            // ipaddressDataGridViewTextBoxColumn
+            // 
+            this.ipaddressDataGridViewTextBoxColumn.DataPropertyName = "ipaddress";
+            this.ipaddressDataGridViewTextBoxColumn.HeaderText = "ipaddress";
+            this.ipaddressDataGridViewTextBoxColumn.Name = "ipaddressDataGridViewTextBoxColumn";
+            // 
+            // computernameDataGridViewTextBoxColumn
+            // 
+            this.computernameDataGridViewTextBoxColumn.DataPropertyName = "computername";
+            this.computernameDataGridViewTextBoxColumn.HeaderText = "computername";
+            this.computernameDataGridViewTextBoxColumn.Name = "computernameDataGridViewTextBoxColumn";
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
+            this.costDataGridViewTextBoxColumn.HeaderText = "cost";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 45);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // goToRec
+            // 
+            this.goToRec.Location = new System.Drawing.Point(81, 45);
+            this.goToRec.Name = "goToRec";
+            this.goToRec.Size = new System.Drawing.Size(110, 23);
+            this.goToRec.TabIndex = 2;
+            this.goToRec.Text = "Go to Record";
+            this.goToRec.UseVisualStyleBackColor = true;
+            this.goToRec.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // bindingNavigator1
+            // 
+            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
+            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -111,44 +219,17 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.inventoryBindingNavigatorSaveItem});
-            this.inventoryBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.inventoryBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.inventoryBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.inventoryBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.inventoryBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.inventoryBindingNavigator.Name = "inventoryBindingNavigator";
-            this.inventoryBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.inventoryBindingNavigator.Size = new System.Drawing.Size(934, 25);
-            this.inventoryBindingNavigator.TabIndex = 0;
-            this.inventoryBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem});
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.bindingNavigator1.Name = "bindingNavigator1";
+            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
+            this.bindingNavigator1.Size = new System.Drawing.Size(934, 25);
+            this.bindingNavigator1.TabIndex = 3;
+            this.bindingNavigator1.Text = "bindingNavigator1";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -182,9 +263,16 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -207,171 +295,47 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // inventoryBindingNavigatorSaveItem
+            // bindingNavigatorAddNewItem
             // 
-            this.inventoryBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.inventoryBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("inventoryBindingNavigatorSaveItem.Image")));
-            this.inventoryBindingNavigatorSaveItem.Name = "inventoryBindingNavigatorSaveItem";
-            this.inventoryBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.inventoryBindingNavigatorSaveItem.Text = "Save Data";
-            this.inventoryBindingNavigatorSaveItem.Click += new System.EventHandler(this.inventoryBindingNavigatorSaveItem_Click_1);
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
-            // inventoryDataGridView
+            // bindingNavigatorDeleteItem
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            this.inventoryDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.inventoryDataGridView.AutoGenerateColumns = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.inventoryDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.inventoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.inventoryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewCheckBoxColumn1,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewCheckBoxColumn2,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
-            this.inventoryDataGridView.DataSource = this.inventoryBindingSource;
-            this.inventoryDataGridView.Location = new System.Drawing.Point(0, 45);
-            this.inventoryDataGridView.Name = "inventoryDataGridView";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.inventoryDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.inventoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inventoryDataGridView.Size = new System.Drawing.Size(934, 564);
-            this.inventoryDataGridView.TabIndex = 1;
-            this.inventoryDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventoryDataGridView_CellContentClick);
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "del_inv";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "del_inv";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "invNum";
-            this.dataGridViewTextBoxColumn1.HeaderText = "invNum";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "date";
-            this.dataGridViewTextBoxColumn3.HeaderText = "date";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "serialNum";
-            this.dataGridViewTextBoxColumn4.HeaderText = "serialNum";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "user";
-            this.dataGridViewTextBoxColumn5.HeaderText = "user";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewCheckBoxColumn2
-            // 
-            this.dataGridViewCheckBoxColumn2.DataPropertyName = "add_inv";
-            this.dataGridViewCheckBoxColumn2.HeaderText = "add_inv";
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "ipaddress";
-            this.dataGridViewTextBoxColumn6.HeaderText = "ipaddress";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "computername";
-            this.dataGridViewTextBoxColumn7.HeaderText = "computername";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "type";
-            this.dataGridViewTextBoxColumn8.HeaderText = "type";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "cost";
-            this.dataGridViewTextBoxColumn9.HeaderText = "cost";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // backBtn1
-            // 
-            this.backBtn1.Location = new System.Drawing.Point(292, 12);
-            this.backBtn1.Name = "backBtn1";
-            this.backBtn1.Size = new System.Drawing.Size(75, 23);
-            this.backBtn1.TabIndex = 2;
-            this.backBtn1.Text = "Back";
-            this.backBtn1.UseVisualStyleBackColor = true;
-            this.backBtn1.Click += new System.EventHandler(this.backBtn1_Click);
-            // 
-            // goToRecord
-            // 
-            this.goToRecord.Location = new System.Drawing.Point(389, 12);
-            this.goToRecord.Name = "goToRecord";
-            this.goToRecord.Size = new System.Drawing.Size(89, 23);
-            this.goToRecord.TabIndex = 3;
-            this.goToRecord.Text = "Go To Record";
-            this.goToRecord.UseVisualStyleBackColor = true;
-            this.goToRecord.Click += new System.EventHandler(this.goToRecord_Click);
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // newSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(934, 621);
-            this.Controls.Add(this.goToRecord);
-            this.Controls.Add(this.backBtn1);
-            this.Controls.Add(this.inventoryDataGridView);
-            this.Controls.Add(this.inventoryBindingNavigator);
-            this.Font = new System.Drawing.Font("Bahnschrift", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Controls.Add(this.bindingNavigator1);
+            this.Controls.Add(this.goToRec);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "newSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Inventory Management Records";
+            this.Text = "Form2";
             this.Load += new System.EventHandler(this.newSearch_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryBindingNavigator)).EndInit();
-            this.inventoryBindingNavigator.ResumeLayout(false);
-            this.inventoryBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inventoryDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
+            this.bindingNavigator1.ResumeLayout(false);
+            this.bindingNavigator1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,9 +343,26 @@
 
         #endregion
 
-        
+        private InventoryDataSet inventoryDataSet;
+        private System.Windows.Forms.BindingSource inventoryDataSetBindingSource;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource inventoryBindingSource;
-        private System.Windows.Forms.BindingNavigator inventoryBindingNavigator;
+        private InventoryDataSetTableAdapters.InventoryTableAdapter inventoryTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn delinvDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn invNumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn serialNumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn addinvDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ipaddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn computernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button goToRec;
+        private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -393,21 +374,5 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton inventoryBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView inventoryDataGridView;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.Button backBtn1;
-        private System.Windows.Forms.Button goToRecord;
-
     }
 }

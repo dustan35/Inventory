@@ -104,6 +104,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="newSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newSearch.Designer.cs">
+      <DependentUpon>newSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,12 +126,6 @@
     </Compile>
     <Compile Include="invEntry.Designer.cs">
       <DependentUpon>invEntry.cs</DependentUpon>
-    </Compile>
-    <Compile Include="newSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="newSearch.Designer.cs">
-      <DependentUpon>newSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,6 +148,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="ClassDiagram1.cd" />
+    <None Include="InventoryDataSet3.xsc">
+      <DependentUpon>InventoryDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="InventoryDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>InventoryDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="InventoryDataSet3.xss">
+      <DependentUpon>InventoryDataSet3.xsd</DependentUpon>
+    </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -184,6 +200,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Custom-Icon-Design-Flatastic-4-Inventory-maintenance.ico" />
+    <Content Include="Inventory.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
