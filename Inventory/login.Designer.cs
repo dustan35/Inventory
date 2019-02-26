@@ -1,4 +1,4 @@
-﻿namespace Inventory
+﻿namespace InventoryMB
 {
     partial class invMngmt
     {

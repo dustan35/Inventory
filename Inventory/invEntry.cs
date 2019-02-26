@@ -12,7 +12,7 @@ using System.Data.OleDb;
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace Inventory
+namespace InventoryMB
 {
 
     public partial class invEntry : Form
@@ -41,7 +41,7 @@ namespace Inventory
             try
             {
                 //String to connect to database  
-                string connection = "Data Source=MSBML-710;Initial Catalog=Inventory;Integrated Security=True";
+                string connection = "Data Source=MSBML-710\\MSBML;Initial Catalog=Inventory;Integrated Security=True";
                 //query to insert the data from the forms  
                 string query = "insert into Inventory(name, date, cost, serialNum, [user], ipaddress, invNum, add_inv, del_inv, type, computerName) values('" + this.name1.Text + "','" + this.date1.Text + "','" + this.price1.Text + "','" + this.serialNum1.Text + "','" + this.user1.Text + "','" + this.ipaddress1.Text + "','" + this.invNum1.Text + "','" + this.add_inv1.Text + "','" + this.del_inv1.Text + "','" + this.type1.Text + "','" + this.computerName1.Text + "')";
                 string value = ipaddress1.Text;
@@ -124,6 +124,15 @@ namespace Inventory
                     return;
                 }
 
+                ////Making sure the checkboxes work right
+                //if (add_inv1.Checked == true)
+                //{
+                    
+                //}
+                //else if (del_inv1.Checked == true)
+                //{
+
+                //}
 
                 SqlConnection con = new SqlConnection(connection); //SqlConnection object to pass my connection string.
                 SqlCommand command = new SqlCommand(query, con); //This is command class which will handle the query and connection object.  
@@ -132,8 +141,8 @@ namespace Inventory
                 reader = command.ExecuteReader();     // query executed and data saved into database.  
                 MessageBox.Show("Record Saved");
                 this.Hide();
-                invEntry go = new invEntry();
-                go.Show();
+                newSearch go = new newSearch(); //create object of newSearch
+                go.Show();                      //use object to show newSearch form
                 while (reader.Read())
                 {
                 }
@@ -177,8 +186,8 @@ namespace Inventory
             this.Hide();
             go.Show();
         }
-        public void searchValues(string input)
-        { //method to accept whatever focus the cursor has in the newSearch page
+        //public void searchValues(string input)
+       // { //method to accept whatever focus the cursor has in the newSearch page
 
             //searches given information by user and fills boxes with information
             //SqlConnection olcn = new SqlConnection("Data Source=MSBML-710;Initial Catalog=Inventory;Integrated Security=True");
@@ -206,7 +215,7 @@ namespace Inventory
             //price1.Text = dt.Rows[0][9].ToString();
 
 
-        }
+       // }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
@@ -270,7 +279,36 @@ namespace Inventory
 
         private void invEntry_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'inventoryDataSet.Inventory' table. You can move, or remove it, as needed.
+            this.inventoryTableAdapter.Fill(this.inventoryDataSet.Inventory);
 
+        }
+
+        private void add_inv1_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void del_inv1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void invNum1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void add_inv1_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clear1_Click(object sender, EventArgs e)
+        {
+            invEntry go = new invEntry();
+            this.Hide();
+            go.Show();
         }
     }
 }

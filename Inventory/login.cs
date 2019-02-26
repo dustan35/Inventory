@@ -13,13 +13,13 @@ using System.Diagnostics;
 using System.Threading;
 using System.Windows.Controls;
 using System.Data.OleDb;
+using System.IO;
 
-namespace Inventory
+namespace InventoryMB
 {
     public partial class invMngmt : Form
     {
-
-
+        
         public invMngmt()
         {
             InitializeComponent();
@@ -42,15 +42,32 @@ namespace Inventory
             //"Data Source=MSBML-710;Initial Catalog=LoginInv;Integrated Security=True";
             connection = "Data Source=MSBML-710\\MSBML;Initial Catalog=LoginInv;Integrated Security=True;";
             //send login info to database
+
+            //string pass1 = pass.Text.Trim();
             query = "select * from loginInv where [user]='" + this.userName.Text + "' and pass='" + this.pass.Text + "'";
             con = new SqlConnection(connection); //SqlConnection object to pass my connection string.
             //MessageBox.Show(con.ToString());
             con.Open(); //open connection
             command = new SqlCommand(query, con); //This is command class which will handle the query and connection object.  
             reader = command.ExecuteReader();
+            
+            //DataSet ds = new DataSet();
+            //SqlDataAdapter sda = new SqlDataAdapter();
+            //sda.SelectCommand = command;
+            //sda.Fill(ds, "pass1");
+            //int i = 0;
+            //if (ds.Tables[i].Rows.Count < 0)
+            //{
+            //    if (pass1 == ds.Tables[i].Rows[i]["password"].ToString())
+            //    {
 
-
-            //Connecting using OleDbConnection(MS Access)
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Try again, information is duplicated");
+            //    }
+            //}
+            //Connecting using OleDbConnection(MS Access)/ Not full functionality at the moment
             //string query;
             //string connection;
             //OleDbConnection con = new OleDbConnection(); //SqlConnection object to pass my connection string.
@@ -75,19 +92,31 @@ namespace Inventory
 
                 go.Show();
                 MessageBox.Show("Logged in successfully");
+                // MessageBox.Show(check); just checking actual value
+                
+                //StreamWriter w = File.AppendText("C:\\Users\\mmoore\\sourse\\repos\\Inventory\\log.txt");
+                
             }
             else if (userName.Text == "" || pass.Text == "")
             {
-                MessageBox.Show("Invalid entry. Try again");
+                MessageBox.Show("Invalid entry. Can't be blank. Try again");
+                invMngmt go = new invMngmt();
+                this.Hide();
+                go.Show();
             }
+            //else if(!userName.Text.Equals())
             else
             {
-                MessageBox.Show("Invalid entry. Try again");
+                MessageBox.Show("Invalid entry. Identical match. Try again");
+                invMngmt go = new invMngmt();
+                this.Hide();
+                go.Show();
             }
 
         }
-
-
+        
+            
+        
 
         invEntry go = new invEntry();
         string output;
@@ -97,10 +126,12 @@ namespace Inventory
         SqlCommand command, command1 = new SqlCommand(); //This is command class which will handle the query and connection object.
         SqlDataReader reader, reader1;
 
-
-        private void connect()
+        //implement this into code eventually, have to work out issues with opening and closing of the connection first
+        public void connect()
         {
-            connection = "Data Source=MSBML-710;Initial Catalog=LoginInv;Integrated Security=True";
+           connection = "Data Source=MSBML-710;Initial Catalog=LoginInv;Integrated Security=True";
+            //con.Open(); //open connection
+        
             con = new SqlConnection(connection); //SqlConnection object to pass my connection string.
             con.Open(); //open connection
         }
@@ -199,47 +230,65 @@ namespace Inventory
 
             SqlCommand command = new SqlCommand(); //This is command class which will handle the query and connection object.
             SqlDataReader reader;
-            connection = "Data Source=MSBML-710;Initial Catalog=LoginInv;Integrated Security=True";
+            connection ="Data Source=MSBML-710\\MSBML;Initial Catalog=LoginInv;Integrated Security=True";
             con = new SqlConnection(connection); //SqlConnection object to pass my connection string.
+            
             con.Open(); //open connection
-            checkValues = "select * from loginInv where [user]= '" + this.userName.Text + "' and pass='" + this.pass.Text + "'";//check values to see if exist
+
+            //checkValues = "select * from loginInv;";  //where [user]= '" + this.userName.Text + "' and pass='" + this.pass.Text + "'";//check values to see if exist
+            //string query= "select * from loginInv where [user] = '"+ this.userName.Text+"'";
+            checkValues = "select * from loginInv where [user] = '" + this.userName.Text + "'";
+            //if query finds something ask user to enter another name.
+
+
+
             command = new SqlCommand(checkValues, con); //This is command class which will handle the query and connection object.
 
-
+            //MessageBox.Show(checkValues);//equals select statement with the text that came from the boxes
             reader = command.ExecuteReader();  // query executed
 
             output = reader.Read().ToString();
+            //MessageBox.Show(reader.Read().ToString());
             con.Close();
             invMngmt run = new invMngmt();
             //run.connect();
             //run.selectFromUsers();
-            if (output == "True")
-                MessageBox.Show("Enter another user name/password combination");
-            else if (output == "False")  //SHOULD I DO THE VALIDATION HERE?
-            { //insert info into database and send to next screen
-                //MessageBox.Show("Checking to see if it makes it here");
-                string newUser = "insert into loginInv([user],pass) values('" + this.userName.Text + "','" + this.pass.Text + "');"; //insert into database if don't exist                
-                connection = "Data Source=MSBML-710;Initial Catalog=LoginInv;Integrated Security=True";
-                con = new SqlConnection(connection); //SqlConnection object to pass my connection string.
-                con.Open(); //open connection
-                command = new SqlCommand(newUser, con); //This is command class which will handle the query and connection object.
-
-                reader = command.ExecuteReader();  // query executed
-                output = reader.Read().ToString();
-                if ((userName.Text == "") || pass.Text == "")
+            //if ("select * from loginInv where [user] = this.userName.Text")
+            
+            //{
+                //MessageBox.Show(output); //= true or false
+                if (output == "True")
                 {
 
-                    run.connect();
-                    run.selectFromUsers();
+                    MessageBox.Show("Enter another user name/password combination");
+                    this.Hide();
+                    run.Show();
                 }
-                this.Hide();
+                else if (output == "False")  //SHOULD I DO THE VALIDATION HERE?
+                { //insert info into database and send to next screen
+                  //MessageBox.Show("Checking to see if it makes it here");
+                    string newUser = "insert into loginInv([user],pass) values('" + this.userName.Text + "','" + this.pass.Text + "');"; //insert into database if don't exist                
+                    connection = "Data Source=MSBML-710\\MSBML;Initial Catalog=LoginInv;Integrated Security=True";
+                    con = new SqlConnection(connection); //SqlConnection object to pass my connection string.
+                    con.Open(); //open connection
+                    command = new SqlCommand(newUser, con); //This is command class which will handle the query and connection object.
 
-                go.Show();
-                MessageBox.Show("New user added successfully");
+                    reader = command.ExecuteReader();  // query executed
+                    output = reader.Read().ToString();
+                    if ((userName.Text == "") || pass.Text == "")
+                    {
+
+                        run.connect();
+                        run.selectFromUsers();
+                    }
+                    this.Hide();
+
+                    go.Show();
+                    MessageBox.Show("New user added successfully");
+                }
             }
 
-
-        }
+        //}
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
